@@ -1,6 +1,6 @@
 {
   "name": "tariff-formula",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Library for representing and reasoning about tariff formulas.",
   "main": "index.js",
   "directories": {
@@ -12,6 +12,10 @@
     "browserify": "browserify -e index.js -s TariffFormula -o formula.js",
     "grammar": "jison src/grammar.jison -o .grammar.js && grep -v token_stack .grammar.js > grammar.js"
 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AusFTAs/tariff-formula.git"
   },
   "keywords": [
     "tariff",
