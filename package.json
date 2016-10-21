@@ -1,16 +1,16 @@
 {
   "name": "tariff-formula",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Library for representing and reasoning about tariff formulas.",
   "main": "index.js",
   "directories": {
   },
   "scripts": {
     "test": "node test.js",
-    "workDev": "babel src/ --watch --out-dir .",
+    "workDev": "babel --presets es2015 src/ --watch --out-dir .",
     "workTest": "nodemon test.js",
     "browserify": "browserify -e index.js -s TariffFormula -o formula.js",
-    "grammar": "jison src/grammar.jison -o .grammar.js && grep -v token_stack .grammar.js > grammar.js"
+    "grammar": "jison src/grammar.jison -o .grammar.js -m commonjs && grep -v token_stack .grammar.js | grep -v source > grammar.js"
 
   },
   "repository": {
@@ -27,8 +27,9 @@
   ],
   "devDependencies": {
     "jison": "*",
-    "babel-plugin-transform-export-extensions": "^6.0.14",
-    "babel-preset-es2015": "^6.1.2"
+    "babel-cli": "^6.0.14",
+    "babel-preset-es2015": "^6.1.2",
+    "browserify": "^6.1.2"
   },
   "author": "Nahid Akbar <mail@nahidakbar.net> (http://nahidakbar.net/)",
   "license": "MIT"
