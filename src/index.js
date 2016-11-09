@@ -8,7 +8,8 @@
  
 "use strict";
 
-var grammar = require("./grammar");
+let grammar = require("./grammar");
+let pluralize = require("pluralize");
 
 var dumpHelper = function(tree)
 {
@@ -163,7 +164,14 @@ var friendlyHelper = function(tree, level)
       }
       else 
       {
-        suffix = ' ' + tree.units + ' ' + suffix;
+        if (tree.quantity && tree.quantity === 1 || !tree.units.match(/^[a-z ]+$/))
+        {
+          suffix = ' ' + tree.units + ' ' + suffix;
+        }
+        else
+        {
+          suffix = ' ' + pluralize(tree.units) + ' ' + suffix;
+        }
       }
     }
   }
@@ -224,12 +232,17 @@ var variablesHelper = function(tree, vars)
     {
       allvars['units'] = 'Number of units';
       allvars['unit_price'] = 'Price per unit';
-    } else if (tree.units.indexOf('/') != -1)
+    }
+    else if (tree.units.indexOf('/') != -1)
     {
       allvars['units'] = 'Number of ' + tree.units.substr(tree.units.indexOf('/') + 1);
       // allvars['unit_price'] = 'Price per ' +
       // tree.units.substr(tree.units.indexOf('/') + 1) + ' in ' +
       // tree.units.substr(0, tree.units.indexOf('/'));
+    }
+    else
+    {
+      allvars['units'] = 'Number of ' + pluralize(tree.units);
     }
   }
 

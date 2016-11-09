@@ -27,6 +27,19 @@ var cases = [{
     "units": ""
   }
 }, {
+  input: "1.1 u 'head'",
+  signature: "qu",
+  quantity: "1.1",
+  unit: 'head',
+  friendly: "1.1 heads",
+  variables: {
+    "units": "Number of heads"
+  },
+  evaluate: {
+    "quantity": 1.1,
+    "units": "head"
+  }
+}, {
   input: "1.1 u 'yen/item'",
   signature: "qu",
   quantity: "1.1",

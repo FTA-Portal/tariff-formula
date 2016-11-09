@@ -13,6 +13,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var grammar = require("./grammar");
+var pluralize = require("pluralize");
 
 var dumpHelper = function dumpHelper(tree) {
   var suffix = '';
@@ -130,7 +131,11 @@ var friendlyHelper = function friendlyHelper(tree, level) {
         prefix = '$';
         suffix = '' + tree.units.substr(3) + ' ' + suffix;
       } else {
-        suffix = ' ' + tree.units + ' ' + suffix;
+        if (tree.quantity && tree.quantity === 1 || !tree.units.match(/^[a-z ]+$/)) {
+          suffix = ' ' + tree.units + ' ' + suffix;
+        } else {
+          suffix = ' ' + pluralize(tree.units) + ' ' + suffix;
+        }
       }
     }
   }
@@ -183,6 +188,8 @@ var variablesHelper = function variablesHelper(tree, vars) {
       // allvars['unit_price'] = 'Price per ' +
       // tree.units.substr(tree.units.indexOf('/') + 1) + ' in ' +
       // tree.units.substr(0, tree.units.indexOf('/'));
+    } else {
+      allvars['units'] = 'Number of ' + pluralize(tree.units);
     }
   }
 
