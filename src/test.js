@@ -127,6 +127,32 @@ var cases = [{
     "units": "yen",
     "quantity": 67
   }
+}, {
+  input: "0.0001 u 'usd/litre'",
+  signature: "qu",
+  quantity: "0.0001",
+  unit: 'usd/litre',
+  friendly: "0.0001 usd/litre",
+  variables: {
+    "units": "Number of litre"
+  },
+  evaluate: {
+    "quantity": 0.0001,
+    "units": "usd"
+  }
+}, {
+  input: "0.00010 u 'usd/litre'",
+  signature: "qu",
+  quantity: "0.00010",
+  unit: 'usd/litre',
+  friendly: "0.0001 usd/litre",
+  variables: {
+    "units": "Number of litre"
+  },
+  evaluate: {
+    "quantity": 0.00010,
+    "units": "usd"
+  }
 }];
 
 cases.forEach(function (case_) {

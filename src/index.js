@@ -133,7 +133,7 @@ var numberFormatHelper = function(number)
 {
   try
   {
-    return Number(number).toLocaleString();
+    return Number(number).toString();
   }
   catch (e)
   {

@@ -110,7 +110,7 @@ var friendlyOperators = {
 
 var numberFormatHelper = function numberFormatHelper(number) {
   try {
-    return Number(number).toLocaleString();
+    return Number(number).toString();
   } catch (e) {
     return number + '';
   }
