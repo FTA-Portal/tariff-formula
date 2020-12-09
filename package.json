@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:AusFTAs/tariff-formula.git"
+    "url": "git@github.com:FTA-Portal/tariff-formula.git"
   },
   "keywords": [
     "tariff",
