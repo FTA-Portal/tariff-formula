@@ -1,4 +1,4 @@
-# Tariff Formulas
+# FTA Tariff Formulas
 
 ## TL;DR
 
