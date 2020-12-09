@@ -1,11 +1,11 @@
 /**
  * @file Tariffs Formula Module
- * 
+ *
  * @author Nahid Akbar
  * @year 2015
  * @copyright National ICT Australia (NICTA). All rights reserved.
  */
- 
+
 "use strict";
 
 let grammar = require("./grammar");
@@ -162,7 +162,7 @@ var friendlyHelper = function(tree, level)
         prefix = '$';
         suffix = '' + tree.units.substr(3) + ' ' + suffix;
       }
-      else 
+      else
       {
         if (tree.quantity && tree.quantity === 1 || !tree.units.match(/^[a-z ]+$/))
         {
@@ -203,7 +203,7 @@ var friendlyHelper = function(tree, level)
       return (group.join(' ' + friendlyOperators[tree.operation] + ' ') + suffix).replace(/^\s+|\s+$/g, '');
     case 'minimum':
     case 'maximum':
-      return (tree.operation + ' of ' + group.join(' and ') + '' + suffix).replace(/^\s+|\s+$/g, '');
+      return (tree.operation + ' of ' + group.join(' or ') + '' + suffix).replace(/^\s+|\s+$/g, '');
     case 'range':
       return ('from ' + tree.group.map(friendlyHelper).join(' to ') + '' + suffix).replace(/^\s+|\s+$/g, '');
     }
@@ -355,17 +355,17 @@ class Formula
     this.friendly = friendlyHelper(this.tree);
     this.variables = variablesHelper(this.tree);
   }
-  
+
   dump()
   {
     return dumpHelper(this.tree);
   }
-  
+
   evaluate(values)
   {
     return evaluateHelper(this.tree, values);
   }
-  
+
   static parse(text)
   {
     return new Formula(text);

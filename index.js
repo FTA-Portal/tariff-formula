@@ -1,6 +1,6 @@
 /**
  * @file Tariffs Formula Module
- * 
+ *
  * @author Nahid Akbar
  * @year 2015
  * @copyright National ICT Australia (NICTA). All rights reserved.
@@ -161,7 +161,7 @@ var friendlyHelper = function friendlyHelper(tree, level) {
         return (group.join(' ' + friendlyOperators[tree.operation] + ' ') + suffix).replace(/^\s+|\s+$/g, '');
       case 'minimum':
       case 'maximum':
-        return (tree.operation + ' of ' + group.join(' and ') + '' + suffix).replace(/^\s+|\s+$/g, '');
+        return (tree.operation + ' of ' + group.join(' or ') + '' + suffix).replace(/^\s+|\s+$/g, '');
       case 'range':
         return ('from ' + tree.group.map(friendlyHelper).join(' to ') + '' + suffix).replace(/^\s+|\s+$/g, '');
     }
