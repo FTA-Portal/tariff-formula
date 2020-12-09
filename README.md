@@ -88,7 +88,7 @@ SOFTWARE.
 
 ### npm
 
-    npm install tariff-formula
+    npm install @thinkmill/fta-tariff-formula
 
 ### html
 
