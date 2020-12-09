@@ -1,5 +1,5 @@
 {
-  "name": "tariff-formula",
+  "name": "fta-tariff-formula",
   "version": "0.0.8",
   "description": "Library for representing and reasoning about tariff formulas.",
   "main": "index.js",
