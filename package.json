@@ -30,6 +30,13 @@
     "browserify": "^6.1.2"
   },
   "author": "Nahid Akbar <mail@nahidakbar.net> (http://nahidakbar.net/)",
+  "contributors": [
+    {
+      "name": "Sean Doyle",
+      "email": "seanmcdoyle@gmail.com",
+      "url": "https://github.com/SeanDoyleGit"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "pluralize": "^3.0.0"
